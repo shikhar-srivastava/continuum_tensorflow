@@ -20,7 +20,7 @@ def example():
 
         # Create TF Dataset and run learner on task
         print('======= TASK : {} ======='.format(task_label))
-        this_task = tf.data.Dataset.from_tensor_slices((data, labels)).batch(batch_size = 8)
+        this_task = tf.data.Dataset.from_tensor_slices((data, labels)).take(1000).batch(batch_size = 8)
         
         # Do your stuff
         learn_on(this_task)

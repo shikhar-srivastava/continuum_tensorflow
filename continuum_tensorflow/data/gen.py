@@ -2,8 +2,10 @@ import tensorflow as tf
 import numpy as np
 
 
-def continual_dataset(dataset, n_tasks):
+def continual_dataset(dataset: str, n_tasks: int) -> list:
     '''Sugar
+        :param dataset: String specifying continual learning dataset
+        :param n_tasks: Number of tasks to be created with dataset
     '''
     try:    
         dataset = dataset.lower()
@@ -26,8 +28,10 @@ def continual_dataset(dataset, n_tasks):
 
 
 
-def get_mnist_permutations(n_tasks):
-    
+def get_mnist_permutations(n_tasks: int) -> list:
+    ''' MNIST PERMUTATIONS Dataset
+        :param n_tasks: Number of tasks to be created with dataset
+    '''
     input_shape = [28,28,1]
     dtypes = tf.float32
 
@@ -58,7 +62,8 @@ def get_mnist_permutations(n_tasks):
     return task_train, task_test
 
 def get_mnist_raw():
-
+    ''' MNIST
+    '''
     input_shape = [28,28,1]
     dtypes = tf.float32
 
@@ -77,8 +82,10 @@ def get_mnist_raw():
     return task_train, task_test
 
 
-def get_mnist_split(n_tasks):
-
+def get_mnist_split(n_tasks: int) -> list:
+    ''' SPLIT MNIST Dataset
+        :param n_tasks: Number of tasks to be created with dataset
+    '''
     input_shape = [28,28,1]
     dtypes = tf.float32
 
@@ -106,8 +113,10 @@ def get_mnist_split(n_tasks):
 
     return task_train, task_test
 
-def get_cifar10_split(n_tasks):
-
+def get_cifar10_split(n_tasks: int) -> list:
+    ''' SPLIT CIFAR10 Dataset
+        :param n_tasks: Number of tasks to be created with dataset
+    '''
     input_shape = [32,32,3]
     dtypes = tf.float32
 
@@ -133,8 +142,10 @@ def get_cifar10_split(n_tasks):
 
     return task_train, task_test
 
-def get_cifar100_split(n_tasks):
-
+def get_cifar100_split(n_tasks: int) -> list:
+    ''' SPLIT CIFAR100 Dataset
+        :param n_tasks: Number of tasks to be created with dataset
+    '''
     input_shape = [32,32,3]
     dtypes = tf.float32
 
@@ -161,15 +172,14 @@ def get_cifar100_split(n_tasks):
     return task_train, task_test
 
 
-def combine_tasks(task_data, n_tasks):
+def combine_tasks(task_data: list, n_tasks: int) -> tf.Tensor:
     '''
-        Creates a combined tensor of all n_tasks withint the task_data list
-        Inputs:
-            task_data: list of data-tensors for n_tasks
-            n_tasks: no of task data-tensors in task_data
+        Creates a combined tensor of all n_tasks within the task_data list. Returns type, data, label
+            for combined task data
+        :param task_data: list of data-tensors for n_tasks
+        :param n_tasks: no of task data-tensors in task_data
         Returns:
-            type, data, label
-                for combined task data
+            
 
     '''
     _type, _data, _label = task_data[0][0], task_data[0][1], task_data[0][2]
