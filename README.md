@@ -14,9 +14,6 @@ git clone https://github.com/aishikhar/continuum_tensorflow.git
 
 Example:
 ```python
-import tensorflow as tf
-import numpy as np
-
 train, test = continual_dataset(dataset = 'splitmnist', n_tasks = 5)
 
 for task_no in range(n_tasks):
@@ -52,4 +49,4 @@ Permuted MNIST:
 :------------------:|:------------------:|:------------------:|:------------------:|:------------------:|
 |<img src="images/mnist_permuted_0.jpg" width="150">|<img src="images/mnist_permuted_1.jpg" width="150">|<img src="images/mnist_permuted_2.jpg" width="150">|<img src="images/mnist_permuted_3.jpg" width="150">|<img src="images/mnist_permuted_4.jpg" width="150">|
 
-*(Source: [Continuum](https://github.com/Continvvm/continuum))*
+*(Images: [Continuum](https://github.com/Continvvm/continuum))*
