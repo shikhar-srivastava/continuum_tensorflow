@@ -7,14 +7,16 @@ def continual_dataset(dataset, n_tasks):
     '''
     try:    
         dataset = dataset.lower()
-        if(dataset.contains('mnist')):
-            if(dataset.contains('split')):
+        if('mnist' in dataset):
+            if('split' in dataset):
                 return get_mnist_split(n_tasks)
-            elif(dataset.contains('permuted') | dataset.contains('perm')):
+            elif(('permuted' in dataset) | ('perm' in dataset)):
                 return get_mnist_permutations(n_tasks)
-        elif(dataset.contains('cifar10')):
+            else:
+                raise ValueError('Badness :) in param `dataset` = {} .'.format(dataset))
+        elif('cifar10' in dataset):   
             return get_cifar10_split(n_tasks)
-        elif(dataset.contains('cifar100')):
+        elif('cifar100' in dataset):   
             return get_cifar100_split(n_tasks)
         else:
             raise ValueError('Badness :) in param `dataset` = {} .'.format(dataset))

@@ -18,8 +18,9 @@ def train(learner, on_dataset):
     optimizer = tf.keras.optimizers.Adam()
     iterations = 1
     for batch_id, batch in enumerate(on_dataset):
+        data, label = batch
         for _ in range(iterations):
-            loss = train_step(batch, learner, optimizer)
+            loss = train_step(data, learner, optimizer)
         print('Batch {} with loss: {}'.format(batch_id, tf.reduce_sum(loss)))
 
 class CAE_MNIST_v2(tf.keras.Model):

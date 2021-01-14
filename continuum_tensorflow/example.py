@@ -4,6 +4,7 @@ from learner.sample_learner import * # sample learner
 
 from data.gen import * # Primary CL data utils
 
+n_tasks = 5
 
 def example():
     
@@ -19,7 +20,7 @@ def example():
 
         # Create TF Dataset and run learner on task
         print('======= TASK : {} ======='.format(task_label))
-        this_task = tf.data.Dataset.from_tensor_slices((data, labels))
+        this_task = tf.data.Dataset.from_tensor_slices((data, labels)).batch(batch_size = 8)
         
         # Do your stuff
         learn_on(this_task)
