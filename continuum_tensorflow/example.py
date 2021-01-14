@@ -5,7 +5,7 @@ from learner.sample_learner import * # sample learner
 from data.gen import * # Primary CL data utils
 
 
-def sample():
+def example():
     
     # Create tasks
     tasks = continual_dataset(dataset = 'splitmnist', n_tasks = 5)
@@ -26,4 +26,4 @@ def sample():
 
 if __name__ == '__main__':
 
-    sample()
+    example()
