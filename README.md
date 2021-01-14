@@ -14,6 +14,10 @@ git clone https://github.com/aishikhar/continuum_tensorflow.git
 
 Example:
 ```python
+from continuum_tensorflow.data import continual_dataset
+import tensorflow as tf
+import numpy as np
+
 train, test = continual_dataset(dataset = 'splitmnist', n_tasks = 5)
 
 for task_no in range(n_tasks):

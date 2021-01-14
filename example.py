@@ -1,8 +1,7 @@
 import tensorflow as tf
 import numpy as np
-from learner.sample_learner import * # sample learner
-
-from data.gen import * # Primary CL data utils
+from continuum_tensorflow.learner.sample_learner import learn_on # sample learner
+from continuum_tensorflow.data import continual_dataset # Primary CL data utils
 
 n_tasks = 5
 
